@@ -1,0 +1,8 @@
+How to scale PlayListApp application in real production.
+
+1. For very large input files, try to divide the file into mulitiple chunks, and the application will read each
+chunk into a separate storage (e.g. MongoDB table) and aggregate them. Since there are more than 1 input files,
+more threads can be spawn to make the operations concurrent.
+
+2. For very large change files, the changes can also be broken down into different input chunks, and then apply
+each chunk to the stored playlist data.
